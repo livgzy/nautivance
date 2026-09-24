@@ -25,41 +25,38 @@
                     <span class="truncate font-serif text-lg sm:text-[22px]">NAUTIVANCE</span>
                 </a>
 
-                {{-- Navigasi desktop (tampil mulai lg) --}}
+                {{-- Navigasi desktop --}}
                 <nav class="hidden gap-[25px] text-sm font-semibold text-slate-600 lg:flex">
-                    <a href="#career" class="hover:text-ocean">Career</a>
-                    <a href="#guide" class="hover:text-ocean">Seafarer Guide</a>
-                    <a href="#education" class="hover:text-ocean">Education</a>
-                    <a href="#jobs" class="hover:text-ocean">Jobs</a>
-                    <a href="#resources" class="hover:text-ocean">Resources</a>
+                    <a href="/category/career" class="hover:text-ocean">Career</a>
+                    <a href="/category/guide" class="hover:text-ocean">Seafarer Guide</a>
+                    <a href="/category/education" class="hover:text-ocean">Education</a>
+                    <a href="/category/jobs" class="hover:text-ocean">Jobs</a>
+                    <a href="/category/resources" class="hover:text-ocean">Resources</a>
                 </nav>
 
                 <div class="flex shrink-0 items-center gap-2 sm:gap-3">
-                    {{-- Tombol CTA (tampil mulai sm) --}}
-                    <a href="#resources" class="hidden rounded-lg bg-gold px-5 py-[13px] font-extrabold text-ink transition hover:brightness-95 sm:inline-block">
-                        Free Resources
+                    {{-- Search link --}}
+                    <a
+                        href="/search"
+                        aria-label="Search"
+                        class="inline-flex size-11 items-center justify-center rounded-lg text-navy transition hover:bg-slate-100 hover:text-ocean"
+                    >
+                        <x-lucide-search class="size-5" stroke-width="2"/>
                     </a>
 
-                    {{-- Tombol hamburger (hilang di lg) --}}
-                    <button
-                        type="button"
-                        @click="open = !open"
-                        :aria-expanded="open.toString()"
-                        aria-controls="mobile-menu"
-                        aria-label="Buka menu navigasi"
-                        class="inline-flex size-11 items-center justify-center rounded-lg text-navy transition hover:bg-slate-100 lg:hidden"
-                    >
-                        <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg x-show="open" x-cloak xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
-                        </svg>
+                    {{-- Hamburger --}}
+                    <button 
+                        type="button" @click="open = !open" :aria-expanded="open.toString()" 
+                        aria-controls="mobile-menu" :aria-label="open ? 'Tutup menu navigasi' : 'Buka menu navigasi'" 
+                        class="inline-flex size-11 items-center justify-center rounded-lg text-navy transition hover:bg-slate-100 lg:hidden" 
+                    > 
+                        <x-lucide-menu x-show="!open" class="size-6" stroke-width="2" /> 
+                        <x-lucide-x x-show="open" x-cloak class="size-6" stroke-width="2"/> 
                     </button>
                 </div>
             </div>
 
-            {{-- Menu HP & tablet (hilang di lg) --}}
+            {{-- Menu HP & tablet --}}
             <div
                 id="mobile-menu"
                 x-show="open"
@@ -67,19 +64,15 @@
                 class="absolute inset-x-0 top-full max-h-[80dvh] overflow-y-auto border-b border-slate-200 bg-white shadow-lg lg:hidden"
             >
                 <nav class="mx-auto flex w-[min(1120px,92%)] flex-col gap-1 py-3">
-                    <a href="#career" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Career</a>
-                    <a href="#guide" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Seafarer Guide</a>
-                    <a href="#education" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Education</a>
-                    <a href="#jobs" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Jobs</a>
-                    <a href="#resources" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Resources</a>
-
-                    {{-- CTA di dalam menu hanya untuk HP (di bawah sm) --}}
-                    <a href="#resources" @click="open = false" class="mt-2 block rounded-lg bg-gold px-5 py-[13px] text-center font-extrabold text-ink transition hover:brightness-95 sm:hidden">
-                        Free Resources
-                    </a>
+                    <a href="/category/career" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Career</a>
+                    <a href="/category/guide" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Seafarer Guide</a>
+                    <a href="/category/education" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Education</a>
+                    <a href="/category/jobs" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Jobs</a>
+                    <a href="/category/resources" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Resources</a>
                 </nav>
             </div>
         </header>
+
 
         {{ $slot }}
 

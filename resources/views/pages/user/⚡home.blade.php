@@ -60,12 +60,12 @@ new #[Title('Nautivance — Advance Your Maritime Career')] class extends Compon
 
                 @php
                     $categories = [
-                        ['icon' => '⚓', 'title' => 'Maritime Careers', 'desc' => 'Career paths, roles, salaries, CV guidance and interview preparation.', 'href' => 'articles'],
-                        ['icon' => '🚢', 'title' => 'Seafarer Guide', 'desc' => 'Practical explanations of certificates, regulations, navigation and ship operations.', 'href' => 'articles', 'id' => 'guide'],
-                        ['icon' => '🎓', 'title' => 'Education & Scholarships', 'desc' => 'Study opportunities, scholarships and resources for maritime professionals.', 'href' => 'articles', 'id' => 'education'],
-                        ['icon' => '💼', 'title' => 'Maritime Jobs', 'desc' => 'Discover opportunities across shipping, ports, offshore and maritime services.', 'href' => 'articles', 'id' => 'jobs'],
-                        ['icon' => '📚', 'title' => 'Maritime Knowledge', 'desc' => 'Clear, useful articles covering the concepts professionals encounter at sea and ashore.', 'href' => 'articles'],
-                        ['icon' => '🧰', 'title' => 'Professional Resources', 'desc' => 'Templates, checklists, trackers and tools designed to save maritime professionals time.', 'href' => 'articles'],
+                        ['icon' => '⚓', 'title' => 'Maritime Careers', 'desc' => 'Career paths, roles, salaries, CV guidance and interview preparation.', 'href' => 'category/'],
+                        ['icon' => '🚢', 'title' => 'Seafarer Guide', 'desc' => 'Practical explanations of certificates, regulations, navigation and ship operations.', 'href' => 'category/', 'id' => 'guide'],
+                        ['icon' => '🎓', 'title' => 'Education & Scholarships', 'desc' => 'Study opportunities, scholarships and resources for maritime professionals.', 'href' => 'category/', 'id' => 'education'],
+                        ['icon' => '💼', 'title' => 'Maritime Jobs', 'desc' => 'Discover opportunities across shipping, ports, offshore and maritime services.', 'href' => 'category/', 'id' => 'jobs'],
+                        ['icon' => '📚', 'title' => 'Maritime Knowledge', 'desc' => 'Clear, useful category/ covering the concepts professionals encounter at sea and ashore.', 'href' => 'category/'],
+                        ['icon' => '🧰', 'title' => 'Professional Resources', 'desc' => 'Templates, checklists, trackers and tools designed to save maritime professionals time.', 'href' => 'category/'],
                     ];
                 @endphp
 
