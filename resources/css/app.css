@@ -14,3 +14,135 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+@keyframes ldio-double-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.75);
+}
+
+.loadingio-spinner-double-ring {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    overflow: hidden;
+    background: transparent;
+}
+
+.ldio-double-ring {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0;
+}
+
+.ldio-double-ring div {
+    box-sizing: border-box !important;
+}
+
+.ldio-double-ring > div {
+    position: absolute;
+    top: 36px;
+    left: 36px;
+
+    width: 128px;
+    height: 128px;
+
+    border: 12px solid #06254a;
+    border-color: #06254a transparent #06254a transparent;
+    border-radius: 50%;
+
+    animation: ldio-double-ring 0.6666666666666666s linear infinite;
+}
+
+.ldio-double-ring > div:nth-child(2),
+.ldio-double-ring > div:nth-child(4) {
+    top: 50px;
+    left: 50px;
+
+    width: 100px;
+    height: 100px;
+
+    animation-direction: reverse;
+}
+
+.ldio-double-ring > div:nth-child(2) {
+    border-color: transparent #d7a72b transparent #d7a72b;
+}
+
+.ldio-double-ring > div:nth-child(3),
+.ldio-double-ring > div:nth-child(4) {
+    border-color: transparent;
+}
+
+.ldio-double-ring > div:nth-child(3) div,
+.ldio-double-ring > div:nth-child(4) div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg);
+}
+
+.ldio-double-ring > div:nth-child(3) div::before,
+.ldio-double-ring > div:nth-child(3) div::after {
+    content: "";
+    display: block;
+
+    position: absolute;
+    top: -12px;
+    left: 46px;
+
+    width: 12px;
+    height: 12px;
+
+    background: #06254a;
+    border-radius: 50%;
+    box-shadow: 0 116px 0 0 #06254a;
+}
+
+.ldio-double-ring > div:nth-child(3) div::after {
+    top: 46px;
+    left: -12px;
+    box-shadow: 116px 0 0 0 #06254a;
+}
+
+.ldio-double-ring > div:nth-child(4) div::before,
+.ldio-double-ring > div:nth-child(4) div::after {
+    content: "";
+    display: block;
+
+    position: absolute;
+    top: -12px;
+    left: 32px;
+
+    width: 12px;
+    height: 12px;
+
+    background: #d7a72b;
+    border-radius: 50%;
+    box-shadow: 0 88px 0 0 #d7a72b;
+}
+
+.ldio-double-ring > div:nth-child(4) div::after {
+    top: 32px;
+    left: -12px;
+    box-shadow: 88px 0 0 0 #d7a72b;
+}
