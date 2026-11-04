@@ -53,4 +53,9 @@ class User extends Authenticatable
             ? Str::substr($initials, 0, 1).Str::substr($initials, -1)
             : $initials;
     }
+
+    public function isAdmin(): bool
+    {
+        return (bool) $this->is_admin;
+    }
 }

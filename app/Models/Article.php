@@ -8,7 +8,8 @@ class Article extends Model
 {
     protected $fillable = [
         'category_id', 'user_id', 'title', 'slug',
-        'excerpt', 'content', 'thumbnail', 'status', 'published_at',
+        'excerpt', 'content', 'thumbnail', //'article_type_id' ,'custom_fields', 
+        'status', 'published_at',
     ];
 
     protected $casts = [
@@ -48,6 +49,11 @@ class Article extends Model
     public function resource()
     {
         return $this->hasOne(ArticleResource::class);
+    }
+
+    public function custom()
+    {
+        return $this->hasOne(ArticleCustom::class);
     }
 
     public function detail(): ?Model

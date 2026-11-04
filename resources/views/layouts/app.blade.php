@@ -21,18 +21,12 @@
         >
             <div class="mx-auto flex h-[68px] w-[min(1120px,92%)] items-center justify-between gap-3 sm:h-[78px] sm:gap-6">
                 <a href="{{ route('home') }}" class="flex min-w-0 items-center gap-2 font-extrabold tracking-wide text-navy sm:gap-3">
-                    <img src="{{ asset('assets/images/nautivance-logo.png') }}" alt="Nautivance logo" class="size-11 shrink-0 object-contain sm:size-14 lg:size-[68px]">
+                    <img src="{{ asset('assets/images/nautivance-favicon.png') }}" alt="Nautivance logo" class="size-10 shrink-0 object-contain sm:size-13 lg:size-[64px]">
                     <span class="truncate font-serif text-lg sm:text-[22px]">NAUTIVANCE</span>
                 </a>
 
                 {{-- Navigasi desktop --}}
-                <nav class="hidden gap-[25px] text-sm font-semibold text-slate-600 lg:flex">
-                    <a href="/category/career" class="hover:text-ocean">Career</a>
-                    <a href="/category/guide" class="hover:text-ocean">Seafarer Guide</a>
-                    <a href="/category/education" class="hover:text-ocean">Education</a>
-                    <a href="/category/jobs" class="hover:text-ocean">Jobs</a>
-                    <a href="/category/resources" class="hover:text-ocean">Resources</a>
-                </nav>
+                <livewire:nav-category />
 
                 <div class="flex shrink-0 items-center gap-2 sm:gap-3">
                     {{-- Search link --}}
@@ -57,19 +51,11 @@
             </div>
 
             {{-- Menu HP & tablet --}}
-            <div
-                id="mobile-menu"
-                x-show="open"
-                x-cloak
-                class="absolute inset-x-0 top-full max-h-[80dvh] overflow-y-auto border-b border-slate-200 bg-white shadow-lg lg:hidden"
-            >
-                <nav class="mx-auto flex w-[min(1120px,92%)] flex-col gap-1 py-3">
-                    <a href="/category/career" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Career</a>
-                    <a href="/category/guide" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Seafarer Guide</a>
-                    <a href="/category/education" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Education</a>
-                    <a href="/category/jobs" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Jobs</a>
-                    <a href="/category/resources" @click="open = false" class="block rounded-lg px-3 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-ocean">Resources</a>
-                </nav>
+            <div id="mobile-menu" x-show="open" x-cloak
+                class="absolute inset-x-0 top-full max-h-[80dvh] overflow-y-auto border-b border-slate-200 bg-white shadow-lg lg:hidden">
+                <div class="mx-auto w-[min(1120px,92%)] py-3">
+                    <livewire:nav-category mobile />
+                </div>
             </div>
         </header>
 

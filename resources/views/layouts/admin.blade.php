@@ -8,8 +8,7 @@
         <meta name="robots" content="noindex, nofollow, noarchive">
         <meta name="referrer" content="same-origin">
 
-        <title>{{ isset($title) ? $title . ' · Admin' : 'Admin' }} · {{ config('app.name') }}</title>
-
+        <title>{{ $title ?? config('app.name') }}</title>
         <link rel="icon" type="image/png" href="{{ asset('nautivance-favicon.png') }}">
 
         <style>
@@ -36,9 +35,10 @@
                 :class="{ '-translate-x-full': !sidebarOpen }"
                 aria-label="Navigasi admin"
             >
-                <div class="flex h-16 items-center border-b border-white/10 px-6">
-                    <span class="font-serif text-xl font-bold tracking-wide">NAUTIVANCE</span>
-                </div>
+                <a href="{{ route('admin.dashboard') }}" class="flex h-16 items-center border-b border-white/20 px-6 gap-2">
+                    <img src="{{ asset('assets/images/nautivance-favicon.png') }}" alt="Nautivance logo" class="size-10 object-contain">
+                    <span class="font-serif text-xl font-bold tracking-wide"> NAUTIVANCE</span>
+                </a>
                 <nav class="flex-1 py-4">
                     <a
                         href="{{ '#' }}"
@@ -50,7 +50,7 @@
                         Dashboard
                     </a>
                     <a
-                        href="{{ '#' }}"
+                        href="{{ route('admin.articles.index') }}"
                         wire:navigate
                         @click="sidebarOpen = false"
                         @if(request()->routeIs('admin.articles.*')) aria-current="page" @endif
@@ -59,7 +59,7 @@
                         Artikel
                     </a>
                     <a
-                        href="{{ '#' }}"
+                        href="{{ route('admin.categories.index') }}"
                         wire:navigate
                         @click="sidebarOpen = false"
                         @if(request()->routeIs('admin.categories.*')) aria-current="page" @endif
@@ -119,7 +119,7 @@
                             class="flex items-center gap-2 rounded-lg p-1.5 hover:bg-slate-100"
                         >
                             <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#0a3768] text-sm font-bold text-white">
-                                {{ Str::upper(Str::substr(auth()->user()->name ?? 'Admin', 0, 1)) }}
+                                {{ auth()->user()->initials() ?? 'Admin' }}
                             </div>
 
                             <span class="hidden max-w-32 truncate text-sm font-semibold sm:block">
@@ -149,7 +149,7 @@
                                 >
                                     <span>Lihat Situs </span><x-lucide-move-up-right class="size-3"/>
                                 </a>
-                                <form method="POST" action="{{ '#' }}">
+                                <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <button
                                         type="submit"

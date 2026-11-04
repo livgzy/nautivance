@@ -19,6 +19,9 @@ class CategorySeeder extends Seeder
             ['name' => 'Education', 'slug' => 'education', 'description' => 'Study opportunities, scholarships and resources for maritime professionals.'],
             ['name' => 'Jobs', 'slug' => 'jobs', 'description' => 'Discover opportunities across shipping, ports, offshore and maritime services.'],
             ['name' => 'Resources', 'slug' => 'resources', 'description' => 'Templates, checklists, trackers and tools designed to save maritime professionals time.'],
+            ['name' => 'Webinar', 'slug' => 'webinar', 'description' => 'Webinar dan sesi online tentang karier, sertifikasi, dan kehidupan di kapal.'],
+            ['name' => 'Event', 'slug' => 'event', 'description' => 'Job fair, pameran, dan acara maritim yang bisa Anda hadiri.'],
+            ['name' => 'Podcast', 'slug' => 'podcast', 'description' => 'Obrolan dan cerita pengalaman dari para profesional maritim.'],
         ];
 
         foreach ($categories as $category) {

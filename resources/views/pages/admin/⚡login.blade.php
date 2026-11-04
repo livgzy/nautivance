@@ -41,6 +41,15 @@ new #[Layout('layouts::guest')] #[Title('Admin Login — Nautivance')] class ext
                 'email' => 'Email atau password salah.',
             ]);
         }
+
+        if (!Auth::user()->isAdmin()) {
+            Auth::logout();
+            RateLimiter::hit($key);
+ 
+            throw ValidationException::withMessages([
+                'email' => 'Akun ini tidak memiliki akses admin.',
+            ]);
+        }
  
         RateLimiter::clear($key);
         session()->regenerate();
@@ -79,7 +88,7 @@ new #[Layout('layouts::guest')] #[Title('Admin Login — Nautivance')] class ext
                 <div x-data="{ show: false }">
 
                     <label for="password" class="mb-1.5 block text-sm font-semibold text-[#33465c]">
-                        Kata Sandi
+                        Password
                     </label>
                 
                     <div class="relative">
@@ -88,14 +97,14 @@ new #[Layout('layouts::guest')] #[Title('Admin Login — Nautivance')] class ext
                                required
                                :type="show ? 'text' : 'password'"
                                autocomplete="current-password"
-                               placeholder="••••••••"
+                               placeholder="••••••••••••"
                                class="w-full rounded-lg border px-4 py-3.5 pr-12 text-[15px] outline-none transition
                                       focus:border-ocean focus:ring-4 focus:ring-ocean/15
                                       @error('password') border-red-400 @else border-[#cbd6e2] @enderror">
                 
                         <button type="button"
                                 @click="show = !show"
-                                class="absolute inset-y-0 right-0 flex items-center px-4 text-ocean hover:text-navy"
+                                class="absolute inset-y-0 right-0 flex items-center px-4 text-navy hover:text-ocean"
                                 :aria-label="show ? 'Sembunyikan kata sandi' : 'Tampilkan kata sandi'">
                 
                             <x-lucide-eye x-show="!show" class="size-5"/>
